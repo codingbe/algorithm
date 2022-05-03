@@ -1,6 +1,7 @@
-let [A, B] = require("fs").readFileSync("./dev/stdin").toString().split(" ");
+const [A, B] = require("fs")
+  .readFileSync("./dev/stdin")
+  .toString()
+  .split(" ")
+  .map((num) => parseInt(num.split("").reverse().join("")));
 
-A = parseInt(A.split("").reverse().join(""));
-B = parseInt(B.split("").reverse().join(""));
-
-console.log(Math.max(A, B));
+A > B ? console.log(A) : console.log(B);
