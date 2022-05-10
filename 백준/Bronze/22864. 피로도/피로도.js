@@ -20,4 +20,4 @@ while (hour < 24) {
   hour++;
 }
 
-console.log(answer);
+process.stdout.write(`${answer}`);
