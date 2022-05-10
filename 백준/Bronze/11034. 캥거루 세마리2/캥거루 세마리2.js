@@ -5,6 +5,6 @@ while (input.length > 0) {
     .shift()
     .split(" ")
     .map((num) => parseInt(num));
-
-  B - A > C - B ? console.log(B - A - 1) : console.log(C - B - 1);
+  const answer = Math.max(B - A, C - B) - 1 + "\n";
+  process.stdout.write(answer);
 }
