@@ -7,11 +7,11 @@ const input = require("fs")
 
 let start = 65;
 
-console.log(
-  input.reduce((prev, curr) => {
+process.stdout.write(
+  `${input.reduce((prev, curr) => {
     const left = start - curr < 0 ? start - curr + 26 : start - curr;
     const right = curr - start < 0 ? curr - start + 26 : curr - start;
     start = curr;
     return prev + Math.min(left, right);
-  }, 0)
+  }, 0)}`
 );
