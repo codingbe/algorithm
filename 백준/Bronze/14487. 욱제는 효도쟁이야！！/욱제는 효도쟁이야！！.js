@@ -1,13 +1,9 @@
 let [N, I] = require("fs").readFileSync("./dev/stdin").toString().split("\n");
 
+N = parseInt(N);
 I = I.split(" ")
   .map((num) => parseInt(num))
-  .sort((a, b) => b - a);
+  .sort((a, b) => b - a)
+  .splice(1, N);
 
-let answer = 0;
-
-for (let i = 1; i < I.length; i++) {
-  answer += I[i];
-}
-
-process.stdout.write(`${answer}`);
+process.stdout.write(`${I.reduce((prev, curr) => prev + curr, 0)}`);
