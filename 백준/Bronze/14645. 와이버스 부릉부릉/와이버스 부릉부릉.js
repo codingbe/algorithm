@@ -1,0 +1,1 @@
+process.stdout.write(`비와이`);
