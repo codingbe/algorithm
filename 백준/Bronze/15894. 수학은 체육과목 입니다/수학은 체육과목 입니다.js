@@ -1,1 +1,1 @@
-process.stdout.write(String(parseInt(require("fs").readFileSync("./dev/stdin").toString()) * 4));
+process.stdout.write(`${require("fs").readFileSync("./dev/stdin").toString() * 4}`);
