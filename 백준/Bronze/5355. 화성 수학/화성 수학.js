@@ -1,11 +1,3 @@
-const cases = require("fs")
-  .readFileSync("./dev/stdin")
-  .toString()
-  .trim()
-  .split("\n")
-  .slice(1)
-  .map((temp) => temp.split(" "));
-
 function calCases(target, cases) {
   return cases
     .reduce((prev, cur) => {
@@ -16,7 +8,16 @@ function calCases(target, cases) {
     .toFixed(2);
 }
 
-cases.forEach((temp) => {
-  const target = parseFloat(temp.shift());
-  console.log(calCases(target, temp));
-});
+console.log(
+  require("fs")
+    .readFileSync("./dev/stdin")
+    .toString()
+    .trim()
+    .split("\n")
+    .slice(1)
+    .map((temp) => temp.split(" "))
+    .reduce((prev, cases) => {
+      const target = parseFloat(cases.shift());
+      return (prev += `${calCases(target, cases)}\n`);
+    }, "")
+);
