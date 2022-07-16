@@ -1,15 +1,16 @@
-const num = parseInt(require("fs").readFileSync("./dev/stdin").toString());
+const num = parseInt(require("fs").readFileSync("./dev/stdin"));
 
 function factorization(num) {
-  let temp = num;
-  let cnt = 2;
   const answer = [];
-  while (temp > 1) {
-    if (temp % cnt === 0) {
-      temp = temp / cnt;
-      answer.push(cnt);
-    } else cnt++;
+  const sqrt = Math.sqrt(num);
+  let temp = num;
+  for (let i = 2; i <= sqrt; i++) {
+    while (temp % i === 0) {
+      answer.push(i);
+      temp /= i;
+    }
   }
+  if (temp !== 1) answer.push(temp);
   return answer.join("\n");
 }
 
