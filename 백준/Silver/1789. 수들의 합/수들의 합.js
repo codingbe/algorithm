@@ -1,12 +1,9 @@
 const input = parseInt(require("fs").readFileSync("./dev/stdin"));
-let sum = 0;
-let cnt = 1;
+let cnt = Math.sqrt(input * 2);
 
-while (1) {
-  if (sum + cnt <= input) {
-    sum += cnt;
-    cnt++;
-  } else break;
-}
+if (Number.isInteger(cnt)) cnt--;
+else cnt |= 0; // cnt = cnt | 0
 
-console.log(cnt - 1);
+while (cnt * (cnt + 1) > 2 * input) cnt--;
+
+console.log(cnt);
