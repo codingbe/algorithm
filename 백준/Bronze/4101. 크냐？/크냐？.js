@@ -6,7 +6,7 @@ process.stdout.write(
     .split("\n")
     .map((temp) => temp.split(" ").map((num) => parseInt(num)))
     .reduce((prev, cur, idx, arr) => {
-      if (idx === arr.length - 1) return prev.trim();
+      if (idx === arr.length - 1) return prev;
       const [A, B] = cur;
       if (A > B) return prev + "Yes\n";
       return prev + "No\n";
