@@ -1,30 +1,24 @@
-function commonMultiple(a, b) {
-  let sum = 1;
-  let A = a;
-  let B = b;
-  const cnt = Math.sqrt(A * B);
-
-  for (let i = 2; i <= cnt; i++) {
-    if (A % i === 0 && B % i == 0) {
-      A = A / i;
-      B = B / i;
-      sum *= i;
-      i--;
-    }
-  }
-
-  return sum * A * B;
-}
-
-require("fs")
+const input = require("fs")
   .readFileSync("./dev/stdin")
   .toString()
   .trim()
-  .split("\n")
-  .slice(1)
-  .map((temp) => temp.split(" "))
-  .forEach((arr) => {
-    let [A, B] = arr.map((num) => parseInt(num));
+  .split("\n");
+const answers = [];
+input.shift();
 
-    console.log(commonMultiple(A, B));
-  });
+input.forEach((nums) => {
+  let [A, B] = nums.split(" ").map((num) => parseInt(num));
+  const cnt = Math.sqrt(A * B);
+  let answer = 1;
+  for (let i = 2; i <= cnt; i++) {
+    if (A % i === 0 && B % i === 0) {
+      answer *= i;
+      A = A / i;
+      B = B / i;
+      i--;
+    }
+  }
+  answers.push(answer * A * B);
+});
+
+process.stdout.write(answers.join("\n"));
