@@ -8,7 +8,7 @@ function calByCompare(A, B, C) {
   return Math.max(A, B, C) * HUNDRED;
 }
 
-console.log(
+process.stdout.write(
   `${require("fs")
     .readFileSync("./dev/stdin")
     .toString()
