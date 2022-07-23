@@ -1,8 +1,7 @@
-const TENTHOUSAND = 10000;
-const THOUSAND = 1000;
-const HUNDRED = 100;
-
 function calByCompare(A, B, C) {
+  const TENTHOUSAND = 10000;
+  const THOUSAND = 1000;
+  const HUNDRED = 100;
   if (A === B && B === C) return TENTHOUSAND + A * THOUSAND;
   if (A === B || A === C) return THOUSAND + A * HUNDRED;
   if (B === C) return THOUSAND + B * HUNDRED;
@@ -16,7 +15,7 @@ console.log(
     .trim()
     .split("\n")
     .slice(1)
-    .map((arr) => arr.split(" ").map(Number))
+    .map((arr) => arr.split(" "))
     .reduce((max, cur) => {
       const [A, B, C] = cur;
       const target = calByCompare(A, B, C);
