@@ -1,11 +1,8 @@
 function calByCompare(A, B, C) {
-  const TENTHOUSAND = 10000;
-  const THOUSAND = 1000;
-  const HUNDRED = 100;
-  if (A === B && B === C) return TENTHOUSAND + A * THOUSAND;
-  if (A === B || A === C) return THOUSAND + A * HUNDRED;
-  if (B === C) return THOUSAND + B * HUNDRED;
-  return Math.max(A, B, C) * HUNDRED;
+  if (A === B && B === C) return 10000 + A * 1000;
+  if (A === B || A === C) return 1000 + A * 100;
+  if (B === C) return 1000 + B * 100;
+  return Math.max(A, B, C) * 100;
 }
 
 process.stdout.write(
