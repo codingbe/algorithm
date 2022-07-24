@@ -29,4 +29,4 @@ function solution(input) {
   return `${x} ${y}`;
 }
 
-console.log(solution(input));
+process.stdout.write(solution(input));
