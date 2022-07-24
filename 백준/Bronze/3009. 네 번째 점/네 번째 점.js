@@ -13,14 +13,20 @@ const input = require("fs")
     { x: [], y: [] }
   );
 
+function compareBy(pos) {
+  if (pos[0] === pos[1]) return pos[2];
+  if (pos[0] === pos[2]) return pos[1];
+  return pos[0];
+}
+
 function solution(input) {
   let x = input.x.slice();
   let y = input.y.slice();
 
-  x = x[0] === x[1] ? x[2] : x[0] === x[2] ? x[1] : x[0];
-  y = y[0] === y[1] ? y[2] : y[0] === y[2] ? y[1] : y[0];
+  x = compareBy(x);
+  y = compareBy(y);
 
   return `${x} ${y}`;
 }
 
-process.stdout.write(solution(input));
+console.log(solution(input));
