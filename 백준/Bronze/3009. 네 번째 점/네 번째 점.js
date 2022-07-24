@@ -20,8 +20,8 @@ function compareBy(pos) {
 }
 
 function solution(input) {
-  let x = input.x.slice();
-  let y = input.y.slice();
+  let x = input.x.slice(0);
+  let y = input.y.slice(0);
 
   x = compareBy(x);
   y = compareBy(y);
