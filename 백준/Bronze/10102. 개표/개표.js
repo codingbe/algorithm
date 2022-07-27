@@ -10,17 +10,17 @@ function compareCount(count) {
   else return "B";
 }
 
-function counting(T, str) {
+function counting(str) {
   const temp = { A: 0, B: 0 };
-  for (let i = 0; i < T; i++) {
-    temp[str[i]]++;
+  for (char of str) {
+    temp[char]++;
   }
   return temp;
 }
 
-function solution(T, str) {
-  const count = counting(T, str);
+function solution(str) {
+  const count = counting(str);
   return compareCount(count);
 }
 
-process.stdout.write(`${solution(T, str)}`);
+process.stdout.write(`${solution(str)}`);
