@@ -6,9 +6,9 @@ const input = require("fs")
   .join("");
 
 function solution(input) {
-  if (input === "12345678") return "ascending";
-  else if (input === "87654321") return "descending";
-  else return "mixed";
+  if (input.includes("12345678")) return "ascending";
+  else if (input.includes("87654321")) return "descending";
+  return "mixed";
 }
 
 process.stdout.write(solution(input));
